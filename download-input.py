@@ -134,3 +134,4 @@ for language in languages:
     if not exists(src_file):
         with open(src_file, 'w') as src:
             src.write(language.format_src(str(args.day).zfill(2)))
+tmp_file.close()
