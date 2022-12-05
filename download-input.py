@@ -123,7 +123,8 @@ with urlopen(request) as response:
     shutil.copyfileobj(response, tmp_file)
 
 for language in languages:
-    with open(join(language.input_path, day_file_test), 'w'):
+    tmp_file.seek(0)
+    with open(join(language.input_path, day_file_test), 'a'):
         pass
 
     with open(join(language.input_path, '{}.txt'.format(day_file_base)), 'wb') as input_file:
