@@ -75,8 +75,8 @@ fn main() {{
     assert_eq!(0, part2(&test_input));
 
     let input = read_input("Day{day}").expect("Failed to open input");
-    assert_eq!(0, part1(&input));
-    assert_eq!(0, part2(&input));
+    println!("{{:?}}", part1(&input));
+    println!("{{:?}}", part2(&input));
 }}
 """.format(day=day)
 
