@@ -51,6 +51,37 @@ class Kotlin(Language):
 """.format(day=day)
 
 
+class Python(Language):
+    input_path = 'python'
+    src_path = 'python'
+
+    def src_file_name(self, day):
+        return "day{}.py".format(day)
+
+    def format_src(self, day):
+        return """#!/usr/bin/env python3
+
+from util import read_input
+
+
+def part1(input):
+    pass
+
+
+def part2(input):
+    pass
+
+
+test_input = read_input("Day{day}_test")
+assert 0 == part1(test_input)
+assert 0 == part2(test_input)
+
+real_input = read_input('Day{day}')
+print(part1(real_input))
+print(part2(real_input))
+""".format(day=day)
+
+
 class Rust(Language):
     input_path = 'rust'
     src_path = 'rust/src/bin'
@@ -92,6 +123,7 @@ if not session_cookie.startswith('session='):
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--day', type=int, required=True)
 parser.add_argument('--kotlin', action='store_true')
+parser.add_argument('--python', action='store_true')
 parser.add_argument('--rust', action='store_true')
 args = parser.parse_args()
 
@@ -104,6 +136,9 @@ languages = []
 
 if args.kotlin:
     languages.append(Kotlin())
+
+if args.python:
+    languages.append(Python())
 
 if args.rust:
     languages.append(Rust())
